@@ -19,12 +19,25 @@ func main() {
 
 	r := gin.Default()
 
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{
+			"Message": "Hello World",
+		})
+	})
+
 	// route category
 	r.GET("/categories", handler.ListCategory(db))
 	r.GET("/categories/:id", handler.GetListCategory(db))
 	r.DELETE("/categories/:id", handler.DeleteCategory(db))
 	r.POST("/create-category", handler.CreateCategory(db))
 	r.PUT("/update-category/:id", handler.UpdateCategory(db))
+
+	// Route Product
+	r.GET("/products", handler.ListProduct(db))
+	r.GET("/products/:id", handler.GetListProduct(db))
+	r.POST("/create-product", handler.CreateProduct(db))
+	r.DELETE("/products/:id", handler.DeleteProduct(db))
+	r.PUT("/update-product/:id", handler.UpdateProduct(db))
 
 	r.Run(":3000")
 }
