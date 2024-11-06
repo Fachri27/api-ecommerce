@@ -2,5 +2,5 @@
   command = "go build -o main"
   publish = "main"
 
-[[functions]]
+[functions]
   src = "main.go"
