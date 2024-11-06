@@ -1,0 +1,6 @@
+[build]
+command = "go build -o main"
+publish = "main"
+
+[[functions]]
+  src = "main.go"
